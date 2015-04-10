@@ -16,6 +16,7 @@ LinkGraph **Create_Graph_List()
     {
         g[i] = (LinkGraph *)malloc(sizeof(LinkGraph));
         g[i]->v = i;
+        g[i]->next = NULL;
     }
 
     return g;
@@ -72,6 +73,7 @@ int One_Graph_List(LinkGraph *g)
        printf("V%d ",g->v);
        g = g->next;
     }
+    printf("\n=========\n");
     return 0;
 }
 int Print_Graph_List(LinkGraph  **g)
@@ -86,4 +88,30 @@ int Print_Graph_List(LinkGraph  **g)
     }
 
     return 0;
+}
+
+int visited[N];
+
+void BFS(LinkGraph **g,VTYPE v)
+{
+    int i = 0;
+    LinkQueue *q = create_linkqueue();
+    visited[v] = 1;
+    enter_linkqueue(q,v);
+
+    while (!is_empty_linkqueue(q))
+    {
+        v = delete_linkqueue(q);
+        printf("V%d ",v);
+
+        for (i = 0; i < N; i++)
+        {
+        if (!visited[i] && (*g+i) != NULL)
+        {
+            visited[i] = 1;
+            enter_linkqueue(q,g[i]->v);
+        }
+        }
+    }
+    return;
 }
