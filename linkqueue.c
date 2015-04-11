@@ -4,6 +4,7 @@
 
 LinkQueue *create_linkqueue()
 {
+    //<<<<<<< HEAD
     LinkNode *head;
     LinkQueue *q;
 
@@ -19,10 +20,12 @@ LinkQueue *create_linkqueue()
 int is_empty_linkqueue(LinkQueue *q)
 {
     return q->front == q->rear ? 1 : 0;
+    //>>>>>>> d340452b7af9f82a4f56b5721e4e5b7a7999b1df
 }
 
 int enter_linkqueue(LinkQueue *q,DATATYPE data)
 {
+    //<<<<<<< HEAD
     LinkNode *temp;
 
     temp = (LinkNode *)malloc(sizeof(LinkNode));

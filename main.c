@@ -12,5 +12,6 @@ int main()
 
     Print_Graph_List(g);
 
+    BFS(g,0);
     return 0;
 }

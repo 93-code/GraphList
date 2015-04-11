@@ -75,6 +75,7 @@ int One_Graph_List(LinkGraph *g)
         printf("V%d ",g->v);
         g = g->next;
     }
+    printf("\n=========\n");
     return 0;
 }
 int Print_Graph_List(LinkGraph  **g)
@@ -95,6 +96,7 @@ int visited[N];
 
 void BFS(LinkGraph **g,VTYPE v)
 {
+    int i = 0;
     LinkQueue *q = create_linkqueue();
     LinkGraph *pg;
     visited[v] = 1;
@@ -106,17 +108,12 @@ void BFS(LinkGraph **g,VTYPE v)
         v = delete_linkqueue(q);
         printf("V%d ",v);
 
-        pg = g[v]; 
-        while (pg != NULL)
+        
+        while (g[v]->next != NULL && visited[g[v]->next->v] != 1)
         {
-            if (visited[pg->v] != 1)
-            {
-                visited[pg->v] = 1;
-                enter_linkqueue(q,pg->v);
-            }
-            pg = pg->next;
+            visited[g[v]->next->v] = 1;
+            enter_linkqueue(q,g[v]->next->v);
         }
     }
-    printf("\n");
     return;
 }
