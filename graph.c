@@ -16,12 +16,10 @@ LinkGraph **Create_Graph_List()
     {
         g[i] = (LinkGraph *)malloc(sizeof(LinkGraph));
         g[i]->v = i;
-        g[i]->next = NULL;
     }
 
     return g;
 }
-
 int Insert_Order_List(LinkGraph *g,VTYPE data)
 {
     LinkGraph *q;
@@ -58,11 +56,10 @@ int Input_Graph_Edge(LinkGraph **g)
 
     while (scanf("<V%d,V%d>",&i,&j) == 2)
     {
-        getchar();//Çå³ý¿Õ¸ñ 
+        getchar(); 
         Insert_Order_List(g[i],j);
     }
 
-    //Çå³ý»º´æ
     while (getchar() != '\n');
 
     return 0;
@@ -90,3 +87,10 @@ int Print_Graph_List(LinkGraph  **g)
 
     return 0;
 }
+
+int BFS_Graph_List(LinkGraph **g)
+{
+
+}
+
+
